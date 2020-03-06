@@ -5,7 +5,7 @@
 由于之前调研了AI目标检测的相关文献（如Faster RCNN、SSD、YOLO等），于是本周主要工作是完成对这些基础算法的复现。相关工作请看这个链接。  
 本周贡献：**实现了SSD算法在VOC2007数据集上的预测。**   
 参考代码：https://github.com/amdegroot/ssd.pytorch  
-###调试步骤：  
+### 调试步骤：  
 * 预装环境介绍：*Ubuntu16.04 + CUDA10.0 + cuDNN7.6.3 + anaconda3 + python3.6 + pytorch1.4.0*
 * 克隆[项目](https://github.com/amdegroot/ssd.pytorch)到本地
 ```
@@ -33,7 +33,7 @@ cd ssd.pytorch/
 python train.py
 ```
 如果不出意外这里模型就开始训练了。  
-特别感谢[链接](https://blog.csdn.net/qq_30614451/article/details/100137358)和[链接](https://blog.csdn.net/qq_30614451/article/details/100137358)提供的帮助。  
+特别感谢[链接](https://blog.csdn.net/qq_30614451/article/details/100137358)和[链接](https://blog.csdn.net/qq_30614451/article/details/100137358)提供的帮助。如果你弄不明白就直接拷贝我的ssd_pytorch/吧。  
 注：*由于我的pytorch是大于1.0的版本*，会报这个错误：
 ```
 IndexError: invalid index of a 0-dim tensor. Use tensor.item()
@@ -43,9 +43,13 @@ IndexError: invalid index of a 0-dim tensor. Use tensor.item()
 ```
 python eval.py
 ```
-###模型效果
+### 模型效果
 VOC2007
 
- Average | Car |  Plane
--- | -- | -- 
-77.4 | 65.3 | 75.2
+ Average | Aeroplane | Bicycle | Bird | Boat | Bottle | Bus | Car | Cat | Chair |
+-- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+77.5 | 82.1 | 85.7 | 75.5 | 69.5 | 50.2 | 84.8 | 85.8 | 87.3 | 61.4 |
+ Cow | Diningtable | Dog | Horse | Motorbike | Person | Pottedplant | Sheep | Sofa | Train | Tvmonitor |
+ -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+82.4 | 79.1 | 85.7 | 87.1 | 84.0 | 79.0 | 50.7 | 77.7 | 78.9 | 86.2 | 76.7 |
+ 
