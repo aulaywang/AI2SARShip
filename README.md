@@ -12,20 +12,21 @@
 git clone https://github.com/amdegroot/ssd.pytorch
 ```
 * 下载COCO2014、VOC2007和2012数据集  
-百度云：[COCO2014](https://pan.baidu.com/s/1eQn9492l0UHZpBWYLST4iQ )（yy52）  
+百度云：[COCO2014](https://pan.baidu.com/s/1eQn9492l0UHZpBWYLST4iQ )（yy52）<br>
 注意只要下载test2014、train2014、val2014和annotations_trainval2014.zip就行  
 [VOC2007](https://pan.baidu.com/s/1Dv2Kt7MVv-HPtY0rl_4AYw )（e9u9）  
 [VOC2012](https://pan.baidu.com/s/1Kvk_AffRJANlxnnbe4SnuA )（bvw5）
 在home下新建data/文件夹，分别解压数据集到data/文件夹下，文件目录如下：
->data
->>coco
->>>annotations
->>>images
->>VOCdevit
->>>VOC2007
->>>VOC2012  
+-data
+--coco
+---annotations
+---images(包含test2014、train2014和val2014)
+---coco_labels.txt
+--VOCdevkit
+---VOC2007
+---VOC2012  
 * 下载[预训练模型](https://pan.baidu.com/s/1ueXlQbX3BYVek68Ag1doZQ ) （296i），复制到[项目](https://github.com/amdegroot/ssd.pytorch)下的weights/中
-* 正式训练
+* 正式训练  
 激活虚拟环境，输入命令
 ```
 cd ~
@@ -46,10 +47,8 @@ python eval.py
 ### 模型效果
 VOC2007
 
- Average | Aeroplane | Bicycle | Bird | Boat | Bottle | Bus | Car | Cat | Chair |
--- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-77.5 | 82.1 | 85.7 | 75.5 | 69.5 | 50.2 | 84.8 | 85.8 | 87.3 | 61.4 |
- Cow | Diningtable | Dog | Horse | Motorbike | Person | Pottedplant | Sheep | Sofa | Train | Tvmonitor |
- -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-82.4 | 79.1 | 85.7 | 87.1 | 84.0 | 79.0 | 50.7 | 77.7 | 78.9 | 86.2 | 76.7 |
+ Average | Aeroplane | Bicycle | Bird | Boat | Bottle | Bus | Car | Cat | Chair | Cow | Diningtable | Dog | Horse | Motorbike | Person | Pottedplant | Sheep | Sofa | Train | Tvmonitor |
+-- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+77.5 | 82.1 | 85.7 | 75.5 | 69.5 | 50.2 | 84.8 | 85.8 | 87.3 | 61.4 | 82.4 | 79.1 | 85.7 | 87.1 | 84.0 | 79.0 | 50.7 | 77.7 | 78.9 | 86.2 | 76.7 |
+
  
