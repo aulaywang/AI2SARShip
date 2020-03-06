@@ -16,17 +16,17 @@ git clone https://github.com/amdegroot/ssd.pytorch
 注意只要下载test2014、train2014、val2014和annotations_trainval2014.zip就行  
 [VOC2007](https://pan.baidu.com/s/1Dv2Kt7MVv-HPtY0rl_4AYw )（e9u9）  
 [VOC2012](https://pan.baidu.com/s/1Kvk_AffRJANlxnnbe4SnuA )（bvw5）
-在home下新建data/文件夹，分别解压数据集到data/文件夹下，文件目录如下：
--data
---coco
----annotations
----images(包含test2014、train2014和val2014)
----coco_labels.txt
---VOCdevkit
----VOC2007
+在home下新建data/文件夹，分别解压数据集到data/文件夹下，文件目录如下：  
+-data  
+--coco  
+---annotations  
+---images(包含test2014、train2014和val2014)  
+---coco_labels.txt  
+--VOCdevkit  
+---VOC2007  
 ---VOC2012  
 * 下载[预训练模型](https://pan.baidu.com/s/1ueXlQbX3BYVek68Ag1doZQ ) （296i），复制到[项目](https://github.com/amdegroot/ssd.pytorch)下的weights/中
-* 正式训练  
+* 正式训练(training)  
 激活虚拟环境，输入命令
 ```
 cd ~
@@ -40,7 +40,7 @@ python train.py
 IndexError: invalid index of a 0-dim tensor. Use tensor.item()
 ```
 **只需要把.data[0]改成.item()就可以正常运行啦！**
-* 模型评估
+* 模型评估(evaluation)
 ```
 python eval.py
 ```
