@@ -14,6 +14,9 @@ git clone https://github.com/jwyang/faster-rcnn.pytorch/tree/pytorch-1.0
 ```
 ln -s /path/to/VOCdevkit/ /path/to/faster-rcnn.pytorch/
 ```
+* 准备预加载模型放在data/pretrained_models/下  
+VGG16:[下载链接](https://filebox.ece.vt.edu/~jw2yang/faster-rcnn/pretrained-base-models/vgg16_caffe.pth)  
+Res101:[下载链接](https://filebox.ece.vt.edu/~jw2yang/faster-rcnn/pretrained-base-models/resnet101_caffe.pth)  
 * 编译  
 激活虚拟环境，输入以下指令：
 ```
@@ -22,7 +25,7 @@ cd lib
 python setup.py build develop
 ```
 
-* **训练**  
+* 训练  
 用vgg16训练：  
 ```
 CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py \
@@ -33,7 +36,10 @@ CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py \
 ```
 当然可以考虑简化一下：  
 ```
-CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc --net vgg16 --bs 1 --nw 1 --lr $LEARNING_RATE --cuda
+#基于VGG的模型
+CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc --net vgg16 --bs 1 --nw 1 --cuda
+#基于Res101的模型
+CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc --net res101 --bs 1 --nw 1 --cuda
 ```
 * 模型评估  
 ```
@@ -43,11 +49,19 @@ python test_net.py --dataset pascal_voc --net vgg16 \
 ```
 当然也可以考虑简化一下：
 ```
-python test_net.py --dataset pascal_voc --net vgg16 --checksession 1 --checkepoch 1 --checkpoint 416 --cuda
+#基于VGG的模型（训练7epochs）
+python test_net.py --dataset pascal_voc --net vgg16 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda
+#基于Res101的模型
+python test_net.py --dataset pascal_voc --net res101 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda
 ```
 ### 模型效果  
 
-VOC2007 **12.56fps\70.7%mAP**  
+VOC2007   
+
+ -- | fps | mAP
+ -- | -- | -- 
+ VGG | 12.56 | 70.7
+ Res | 11.75 | 74.8
 详细数据见最后的**模型效果**  
 
 ## 2020/03/06更新
@@ -99,7 +113,8 @@ VOC2007
  -- | Average | Aeroplane | Bicycle | Bird | Boat | Bottle | Bus | Car | Cat | Chair | Cow | Diningtable | Dog | Horse | Motorbike | Person | Pottedplant | Sheep | Sofa | Train | Tvmonitor |
 -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 SSD | 77.5 | 82.1 | 85.7 | 75.5 | 69.5 | 50.2 | 84.8 | 85.8 | 87.3 | 61.4 | 82.4 | 79.1 | 85.7 | 87.1 | 84.0 | 79.0 | 50.7 | 77.7 | 78.9 | 86.2 | 76.7 |
-FRCN | 70.7 | 74.5 | 79.1 | 68.7 | 51.3 | 53.8 | 78.4 | 85.5 | 84.1 | 48.6 | 80.5 | 63.8 | 77.8 | 83.6 | 76.0 | 77.8 | 44.5 | 72.8 | 65.5 | 73.0 | 74.0 |
+FRCN-VGG | 70.7 | 74.5 | 79.1 | 68.7 | 51.3 | 53.8 | 78.4 | 85.5 | 84.1 | 48.6 | 80.5 | 63.8 | 77.8 | 83.6 | 76.0 | 77.8 | 44.5 | 72.8 | 65.5 | 73.0 | 74.0 |
+FRCN-Res | 74.8 | 77.7 | 79.4 | 77.4 | 65.2 | 61.4 | 78.3 | 85.8 | 87.1 | 55.0 | 82.0 | 65.9 | 87.2 | 86.1 | 78.7 | 78.8 | 48.1 | 76.6 | 73.8 | 77.3 | 74.8 |
 
 
  
