@@ -40,6 +40,8 @@ CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py \
 CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc --net vgg16 --bs 1 --nw 1 --cuda
 #基于Res101的模型
 CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc --net res101 --bs 1 --nw 1 --cuda
+#基于VGG的模型训练2007+2012
+CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc_0712 --net vgg16 --bs 1 --nw 1 --cuda
 ```
 * 模型评估  
 ```
@@ -53,6 +55,8 @@ python test_net.py --dataset pascal_voc --net vgg16 \
 python test_net.py --dataset pascal_voc --net vgg16 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda
 #基于Res101的模型
 python test_net.py --dataset pascal_voc --net res101 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda
+#基于VGG的2007+2012模型（训练2epochs）
+python test_net.py --dataset pascal_voc_0712 --net vgg16 --checksession 1 --checkepoch 2 --checkpoint 33101 --cuda
 ```
 ### 模型效果  
 
@@ -60,8 +64,9 @@ VOC2007
 
  -- | fps | mAP
  -- | -- | -- 
- VGG | 12.56 | 70.7
+ VGG+07 | 12.56 | 70.7
  Res | 11.75 | 74.8
+ VGG+0712 | 12.3 | 67.4
 详细数据见最后的**模型效果**  
 
 ## 2020/03/06更新
@@ -113,8 +118,8 @@ VOC2007
  -- | Average | Aeroplane | Bicycle | Bird | Boat | Bottle | Bus | Car | Cat | Chair | Cow | Diningtable | Dog | Horse | Motorbike | Person | Pottedplant | Sheep | Sofa | Train | Tvmonitor |
 -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 SSD | 77.5 | 82.1 | 85.7 | 75.5 | 69.5 | 50.2 | 84.8 | 85.8 | 87.3 | 61.4 | 82.4 | 79.1 | 85.7 | 87.1 | 84.0 | 79.0 | 50.7 | 77.7 | 78.9 | 86.2 | 76.7 |
-FRCN-VGG | 70.7 | 74.5 | 79.1 | 68.7 | 51.3 | 53.8 | 78.4 | 85.5 | 84.1 | 48.6 | 80.5 | 63.8 | 77.8 | 83.6 | 76.0 | 77.8 | 44.5 | 72.8 | 65.5 | 73.0 | 74.0 |
+FRCN-VGG07 | 70.7 | 74.5 | 79.1 | 68.7 | 51.3 | 53.8 | 78.4 | 85.5 | 84.1 | 48.6 | 80.5 | 63.8 | 77.8 | 83.6 | 76.0 | 77.8 | 44.5 | 72.8 | 65.5 | 73.0 | 74.0 |
 FRCN-Res | 74.8 | 77.7 | 79.4 | 77.4 | 65.2 | 61.4 | 78.3 | 85.8 | 87.1 | 55.0 | 82.0 | 65.9 | 87.2 | 86.1 | 78.7 | 78.8 | 48.1 | 76.6 | 73.8 | 77.3 | 74.8 |
-
+FRCN-VGG0712 | 67.4 | 68.2 | 74.2 | 67.1 | 47.9 | 58.5 | 74.0 | 80.2 | 78.3 | 49.3 | 72.4 | 60.9 | 77.1 | 81.7 | 73.8 | 75.8 | 34.5 | 68.0 | 63.1 | 74.3 | 68.7 |
 
  
