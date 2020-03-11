@@ -58,6 +58,17 @@ python test_net.py --dataset pascal_voc --net res101 --checksession 1 --checkepo
 #基于VGG的2007+2012模型（训练2epochs）
 python test_net.py --dataset pascal_voc_0712 --net vgg16 --checksession 1 --checkepoch 2 --checkpoint 33101 --cuda
 ```
+* 跑一个demo  
+```
+python demo.py --net vgg16 \
+               --checksession $SESSION --checkepoch $EPOCH --checkpoint $CHECKPOINT \
+               --cuda --load_dir path/to/model/directoy
+```
+比如用res101的模型来检测：  
+```
+python demo.py --net vgg16 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda --load_dir models
+```
+
 ### 模型效果  
 
 VOC2007   
