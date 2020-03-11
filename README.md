@@ -66,7 +66,7 @@ python demo.py --net vgg16 \
 ```
 比如用res101的模型来检测：  
 ```
-python demo.py --net vgg16 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda --load_dir models
+python demo.py --net res101 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda --load_dir models
 ```
 检测效果  
 ![kon](https://github.com/aulaywang/AI2SARShip/blob/master/kon5._det.jpg)
@@ -85,7 +85,7 @@ VOC2007
 ### 模型迁移
 有了在VOC上训练数据的经验我们就可以在SSDD上训练了。总体思路是这样的，把SSDD的数据集做成和VOC的一样，然后“骗”算法进行训练。  
 为了做到数据集格式一致，我参考了[链接](https://www.cnblogs.com/wind-chaser/p/11359521.html)对原先的SSDD数据集进行改动。  
-
+效果：**13.89fps/81.2mAP**  
 ## 2020/03/06更新
 由于之前调研了AI目标检测的相关文献（如Faster RCNN、SSD、YOLO等），于是本周主要工作是完成对这些基础算法的复现。    
 本周贡献：**实现了SSD算法在VOC2007数据集上的预测。**   
