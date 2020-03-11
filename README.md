@@ -1,8 +1,8 @@
 # AI2SARShip
 这个repo是我做2020年本科毕业设计的记录，我的研究课题是：高分辨率SAR影像舰船检测模型设计与优化。  
 本repo于2020/03/06开源，每隔一周更新一次，直到5月底验收。 
-## 2020/03/09更新  
-本周贡献：**实现了Faster RCNN算法在VOC2007数据集上的预测。**  
+## 2020/03/11更新  
+本周贡献：**实现了Faster RCNN算法在VOC2007数据集上的预测，并实现了SSDD数据集的迁移**  
 参考代码：https://github.com/jwyang/faster-rcnn.pytorch/tree/pytorch-1.0
 ### 调试步骤
 * 预装环境介绍：*Ubuntu16.04 + CUDA10.0 + cuDNN7.6.3 + anaconda3 + python3.6 + pytorch1.4.0*
@@ -82,6 +82,9 @@ VOC2007
  Res(bs4) | 11.83 | 72.1  
  
 详细数据见最后的**模型效果**  
+### 模型迁移
+有了在VOC上训练数据的经验我们就可以在SSDD上训练了。总体思路是这样的，把SSDD的数据集做成和VOC的一样，然后“骗”算法进行训练。  
+为了做到数据集格式一致，我参考了[链接](https://www.cnblogs.com/wind-chaser/p/11359521.html)对原先的SSDD数据集进行改动。  
 
 ## 2020/03/06更新
 由于之前调研了AI目标检测的相关文献（如Faster RCNN、SSD、YOLO等），于是本周主要工作是完成对这些基础算法的复现。    
