@@ -68,7 +68,8 @@ python demo.py --net vgg16 \
 ```
 python demo.py --net vgg16 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda --load_dir models
 ```
-
+检测效果  
+![kon](https://github.com/aulaywang/AI2SARShip/blob/master/kon5._det.jpg)
 ### 模型效果  
 
 VOC2007   
