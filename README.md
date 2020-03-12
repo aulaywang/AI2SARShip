@@ -81,21 +81,21 @@ VOC2007
  VGG+0712 | 12.3 | 67.4
  Res(bs4) | 11.83 | 72.1  
  
-详细数据见最后的**[模型效果](https://github.com/aulaywang/AI2SARShip#%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C-1)**  
+详细数据见最后的[模型效果](https://github.com/aulaywang/AI2SARShip#%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C-1)  
 ### 模型迁移
 有了在VOC上训练数据的经验我们就可以在SSDD上训练了。总体思路是这样的，把SSDD的数据集做成和VOC的一样，然后“骗”算法进行训练。  
 为了做到数据集格式一致，我参考了[链接](https://www.cnblogs.com/wind-chaser/p/11359521.html)对原先的SSDD数据集进行改动。  
 效果：**13.89fps/81.2mAP**  
 检测效果  
-![图1a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000199.jpg)  
+![图1a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000199.jpg)
 ![图1b](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000199_det.jpg)  
-![图2a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000806.jpg)  
+![图2a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000806.jpg)
 ![图2b](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000806_det.jpg)  
-![图3a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000018.jpg)  
+![图3a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000018.jpg)
 ![图3b](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000018_det.jpg)  
-![图4a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000750.jpg)  
+![图4a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000750.jpg)
 ![图4b](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000750_det.jpg)  
-![图5a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000224.jpg)  
+![图5a](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000224.jpg)
 ![图5b](https://github.com/aulaywang/AI2SARShip/blob/master/sar_image/000224_det.jpg)  
 ## 2020/03/06更新
 由于之前调研了AI目标检测的相关文献（如Faster RCNN、SSD、YOLO等），于是本周主要工作是完成对这些基础算法的复现。    
