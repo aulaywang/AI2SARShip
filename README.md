@@ -6,7 +6,7 @@
 实现效果  
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/predictions.jpg)  
 **实现YOLO的图片批量处理导出**  
-[视频地址](http://t.cn/A6zVDEuD?m=4481962468710256&u=6049262730)
+[视频地址](https://www.zhihu.com/zvideo/1221754129061982208)  
 ## 2020/03/11更新  
 本周贡献：**实现了Faster RCNN算法在VOC2007数据集上的预测，并实现了SSDD数据集的迁移**  
 参考代码：https://github.com/jwyang/faster-rcnn.pytorch/tree/pytorch-1.0
