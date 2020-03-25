@@ -11,6 +11,11 @@ FasterRCNN + VOC2007 + SSDD：（ mAP = 81.2 ）
 
 ## 2020/03/20更新
 **实现YOLOv3的训练和对SSDD图像的目标检测**  
+训练：  
+```
+./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg ./model/darknet53.conv.74 
+```
+
 实现效果  
 ![图片1](https://github.com/aulaywang/AI2SARShip/blob/master/yolo_sar/000089.jpg)  
 ![图片2](https://github.com/aulaywang/AI2SARShip/blob/master/yolo_sar/000403.jpg)  
