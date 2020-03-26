@@ -1,13 +1,18 @@
 # AI2SARShip
 这个repo是我做2020年本科毕业设计的记录，我的研究课题是：高分辨率SAR影像舰船检测模型设计与优化。  
 本repo于2020/03/06开源，每隔一周更新一次，直到5月底验收。 
-## 2020/03/24更新  
+## 2020/03/26更新  
 **研究了一些模型的PR曲线绘制**  
 [参考链接](https://blog.csdn.net/hongxingabc/article/details/80064574)  
 FasterRCNN + VOC2007：（ mAP = 74.8 ）  
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/results/Figure_2.png)  
 FasterRCNN + VOC2007 + SSDD：（ mAP = 81.2 ）  
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/results/Figure_1.png)  
+[参考链接](https://blog.csdn.net/qq_33350808/article/details/83178002)  
+[参考链接](https://blog.csdn.net/amusi1994/article/details/81564504)  
+YOLOv3 + SSDD ( mAP = 72.2 )  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/results/yolov3.png)  
+
 
 ## 2020/03/20更新
 **实现YOLOv3的训练和对SSDD图像的目标检测**  
