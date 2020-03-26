@@ -13,7 +13,16 @@ FasterRCNN + VOC2007 + SSDD：（ mAP = 81.2 ）
 YOLOv3 + SSDD ( mAP = 72.2 )  
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/results/yolov3.png)  
 
-
+**研究了一些模型的loss曲线绘制**  
+原理：基于tensorboard  
+一个槽点是pytorch没找到合适的输出方案，要通过tf输出2333  
+```
+#基于Res101的模型
+CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc --net res101 --bs 1 --nw 1 --cuda --use_tfb
+tensorboard --logdir=/home/aulaywang/FRCN/AISAR/logs/logs_s_1/losses
+```
+FasterRCNN + VOC2007 + SSDD 的loss曲线：（ mAP = 81.2 ）  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/loss_pic/logs_s_1_losses%20(1).svg)
 ## 2020/03/20更新
 **实现YOLOv3的训练和对SSDD图像的目标检测**  
 训练：  
