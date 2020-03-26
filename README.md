@@ -22,7 +22,11 @@ CUDA_VISIBLE_DEVICES=0 python trainval_net.py --dataset pascal_voc --net res101 
 tensorboard --logdir=/home/aulaywang/FRCN/AISAR/logs/logs_s_1/losses
 ```
 FasterRCNN + VOC2007 + SSDD 的loss曲线：（ mAP = 81.2 ）  
-![图片](https://github.com/aulaywang/AI2SARShip/blob/master/loss_pic/logs_s_1_losses%20(1).svg)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/loss_pic/logs_s_1_losses%20(1).svg)  
+
+下午更新：用python重写绘图代码  
+FasterRCNN + VOC2007 + SSDD 的loss曲线：（ mAP = 81.2 ）  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/loss_pic/loss.png)  
 ## 2020/03/20更新
 **实现YOLOv3的训练和对SSDD图像的目标检测**  
 训练：  
