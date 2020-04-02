@@ -1,6 +1,41 @@
 # AI2SARShip
 这个repo是我做2020年本科毕业设计的记录，我的研究课题是：高分辨率SAR影像舰船检测模型设计与优化。  
 本repo于2020/03/06开源，每隔一周更新一次，直到5月底验收。 
+## 2020/04/02更新  
+暂时没有新内容，YOLO调试指令补档（因为一个失误把存命令的文件删了，花了两天时间复原，太坑了）  
+```
+SAR
+
+train:
+./darknet detector train cfg/voc.data_sar cfg/yolov3-voc.cfg darknet53.conv.74
+
+test:
+./darknet detector valid cfg/voc.data_sar cfg/yolov3-voc.cfg backup0/yolov3-voc_900.weights
+# change the batch = 1 and subdivisions = 1
+
+draw:
+./darknet detector valid cfg/voc.data_sar cfg/yolov3-voc.cfg backup0/yolov3-voc_900.weights -out ""
+python reval_voc_py3.py --voc_dir /home/aulaywang/darknet/VOCdevkit --year 2007 --image_set /home/aulaywang/darknet/VOCdevkit/VOC2007/ImageSets/Main/train --classes /home/aulaywang/darknet/data0/voc.names test4sar
+
+#activate torch2
+python compute_mAP.py 
+
+
+VOC
+
+train:
+./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 | tee visualization/train_yolov3.log 
+
+
+
+test:
+./darknet detector valid cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc_2600.weights -out
+
+draw:
+./darknet detector valid cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc_2600.weights -out ""
+python reval_voc_py3_voc.py --voc_dir /home/aulaywang/darknet/VOCdevkit --year 2007 --image_set /home/aulaywang/darknet/VOCdevkit/VOC2007/results/ --classes /home/aulaywang/darknet/voc.names test2voc
+### 暂时是error ###
+```
 ## 2020/03/26更新  
 **研究了一些模型的PR曲线绘制**  
 [参考链接](https://blog.csdn.net/hongxingabc/article/details/80064574)  
@@ -191,9 +226,9 @@ VOC2007
  -- | Average | Aeroplane | Bicycle | Bird | Boat | Bottle | Bus | Car | Cat | Chair | Cow | Diningtable | Dog | Horse | Motorbike | Person | Pottedplant | Sheep | Sofa | Train | Tvmonitor |
 -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 SSD | 77.5 | 82.1 | 85.7 | 75.5 | 69.5 | 50.2 | 84.8 | 85.8 | 87.3 | 61.4 | 82.4 | 79.1 | 85.7 | 87.1 | 84.0 | 79.0 | 50.7 | 77.7 | 78.9 | 86.2 | 76.7 |
-FRCN-VGG07 | 70.7 | 74.5 | 79.1 | 68.7 | 51.3 | 53.8 | 78.4 | 85.5 | 84.1 | 48.6 | 80.5 | 63.8 | 77.8 | 83.6 | 76.0 | 77.8 | 44.5 | 72.8 | 65.5 | 73.0 | 74.0 |
+FRCN-VOC07 | 70.7 | 74.5 | 79.1 | 68.7 | 51.3 | 53.8 | 78.4 | 85.5 | 84.1 | 48.6 | 80.5 | 63.8 | 77.8 | 83.6 | 76.0 | 77.8 | 44.5 | 72.8 | 65.5 | 73.0 | 74.0 |
 FRCN-Res | 74.8 | 77.7 | 79.4 | 77.4 | 65.2 | 61.4 | 78.3 | 85.8 | 87.1 | 55.0 | 82.0 | 65.9 | 87.2 | 86.1 | 78.7 | 78.8 | 48.1 | 76.6 | 73.8 | 77.3 | 74.8 |
-FRCN-VGG0712 | 67.4 | 68.2 | 74.2 | 67.1 | 47.9 | 58.5 | 74.0 | 80.2 | 78.3 | 49.3 | 72.4 | 60.9 | 77.1 | 81.7 | 73.8 | 75.8 | 34.5 | 68.0 | 63.1 | 74.3 | 68.7 |
+FRCN-VOC0712 | 67.4 | 68.2 | 74.2 | 67.1 | 47.9 | 58.5 | 74.0 | 80.2 | 78.3 | 49.3 | 72.4 | 60.9 | 77.1 | 81.7 | 73.8 | 75.8 | 34.5 | 68.0 | 63.1 | 74.3 | 68.7 |
 FRCN-Res(bs4) | 72.1 | 77.9 | 77.6 | 74.7 | 57.4 | 60.6 | 82.3 | 84.3 | 85.5 | 47.4 | 81.5 | 54.8 | 83.2 | 83.3 | 76.1 | 77.4 | 48.4 | 78.3 | 71.2 | 78.4 | 62.5 |
 
  
