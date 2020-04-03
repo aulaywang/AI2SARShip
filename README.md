@@ -1,7 +1,37 @@
 # AI2SARShip
 这个repo是我做2020年本科毕业设计的记录，我的研究课题是：高分辨率SAR影像舰船检测模型设计与优化。  
-本repo于2020/03/06开源，每隔一周更新一次，直到5月底验收。 
+本repo于2020/03/06开源，每隔一周更新一次，直到5月底验收。  
+**学校通知了，4月15到20号之间有中期答辩。**  
 ## 2020/04/03更新  
+目前的进度总体来说还是围绕YOLOv3架构进行改进，放弃改darknet53了，准备尝试改一改后面的检测算法，看看能不能有突破。  
+先回顾一下整套YOLOv3的SAR目标检测的流程。  
+准备工作：voc.data_sar（voc.data改） train时设置valid为valid，test时valid改成test文件的路径（这几个文件都是要有路径的）  
+yolov3-voc_sar.cfg(yolov3-voc.cfg改)  注意test和train要分别设置一下batch和subdivision  
+darknet53.conv.73预训练模型  
+把SSDD的1160张图片按8：1：1的比例随机给训练集、验证集和测试集（代码）  
+训练：  
+```
+./darknet detector train cfg/voc.data_sar cfg/yolov3-voc_sar.cfg darknet53.conv.74 | tee visualization/train_yolov3.log 
+```
+后面的部分可以将训练时产生的文件保存下来方便绘制图像，这时训练产生的所有模型都存到darknet/backup文件夹下了。原始的文件是前1000次每隔100次保存，之后保存就到10000次了，我取消了这个设定（在detector.c下修改，重编译），训练到2000次时avgloss降低到0.3-0.4，我中止训练，此时backup里有21个模型文件。  
+测试：（记得把yolov3-voc_sar.cfg改了）
+```
+./darknet detector valid cfg/voc.data cfg/yolov3-voc_sar.cfg backup/yolov3-voc_2600.weights -out
+```
+后面的 -out可以在darknet/results文件夹下生成一个ship.txt文件，代表检测结果。  
+画precison-recall图：  
+```
+在python2的环境下
+python compute_mAP.py 
+```
+注意需要voc_eval.py这个文件作为头文件，同时把darknet下原来的annots.pkl删除或者重命名。  
+这样就可以画图了，同时会返回precision和recall各自的值。  
+画loss图：  
+进入visualization文件夹，此时里面应该有一个log文件，准备三个程序：extract_log.py，train_iou_visualization.py和train_loss_visualization.py  
+如果要画loss图就运行1和3两个文件。  
+
+
+
 去掉最后一个上采样层，显存崩了  
 调了一个mAP=0.32的垃圾  
 继续尝试中
