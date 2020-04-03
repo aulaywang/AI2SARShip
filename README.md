@@ -46,7 +46,7 @@ Enter path:/home/aulaywang/darknet/2007_test.txt
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c6.png)
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c7.png)
 
-更新了一些有趣的代码(others文件夹下)：
+更新了一些有趣的代码(others文件夹下)：  
 flv2jpg.py:视频转图片输出  
 voc_labe.py:把voc的xml格式转化成yolo格式(5参数格式)，会在执行完后生成labels文件夹  
 test.py:数据集划分程序  
