@@ -29,7 +29,7 @@ python compute_mAP.py
 画loss图：  
 进入visualization文件夹，此时里面应该有一个log文件，准备三个程序：extract_log.py，train_iou_visualization.py和train_loss_visualization.py  
 如果要画loss图就运行1和3两个文件。  
-![图片](https://github.com/aulaywang/AI2SARShip/blob/master/visualization/avg_loss.png)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/visualization/avg_loss.png)  
 图片批量可视化：  
 ```
 ./darknet detector test cfg/voc.data_sar cfg/yolov3-voc_sar2.cfg backup/yolov3-voc_sar2_2000.weights
