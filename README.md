@@ -1,6 +1,10 @@
 # AI2SARShip
 这个repo是我做2020年本科毕业设计的记录，我的研究课题是：高分辨率SAR影像舰船检测模型设计与优化。  
 本repo于2020/03/06开源，每隔一周更新一次，直到5月底验收。 
+## 2020/04/03更新  
+去掉最后一个上采样层，显存崩了  
+调了一个mAP=0.32的垃圾  
+继续尝试中
 ## 2020/04/02更新  
 暂时没有新内容，YOLO调试指令补档（因为一个失误把存命令的文件删了，花了两天时间复原，太坑了）  
 ```
@@ -15,6 +19,7 @@ test:
 
 draw:
 ./darknet detector valid cfg/voc.data_sar cfg/yolov3-voc.cfg backup0/yolov3-voc_900.weights -out ""
+#这个没用
 python reval_voc_py3.py --voc_dir /home/aulaywang/darknet/VOCdevkit --year 2007 --image_set /home/aulaywang/darknet/VOCdevkit/VOC2007/ImageSets/Main/train --classes /home/aulaywang/darknet/data0/voc.names test4sar
 
 #activate torch2
