@@ -16,7 +16,7 @@ darknet53.conv.73预训练模型
 后面的部分可以将训练时产生的文件保存下来方便绘制图像，这时训练产生的所有模型都存到darknet/backup文件夹下了。原始的文件是前1000次每隔100次保存，之后保存就到10000次了，我取消了这个设定（在detector.c下修改，重编译），训练到2000次时avgloss降低到0.3-0.4，我中止训练，此时backup里有21个模型文件。  
 测试：（记得把yolov3-voc_sar.cfg改了）
 ```
-./darknet detector valid cfg/voc.data cfg/yolov3-voc_sar.cfg backup/yolov3-voc_2600.weights -out
+./darknet detector valid cfg/voc.data cfg/yolov3-voc_sar.cfg backup/yolov3-voc_2000.weights -out
 ```
 后面的 -out可以在darknet/results文件夹下生成一个ship.txt文件，代表检测结果。  
 画precison-recall图：  
@@ -30,11 +30,12 @@ python compute_mAP.py
 进入visualization文件夹，此时里面应该有一个log文件，准备三个程序：extract_log.py，train_iou_visualization.py和train_loss_visualization.py  
 如果要画loss图就运行1和3两个文件。  
 
-
-
-去掉最后一个上采样层，显存崩了  
-调了一个mAP=0.32的垃圾  
-继续尝试中
+图片批量可视化：  
+```
+./darknet detector test cfg/voc.data_sar cfg/yolov3-voc_sar2.cfg backup/yolov3-voc_sar2_2000.weights
+Enter path:/home/aulaywang/darknet/2007_test.txt
+```
+运行完毕后图片会保存在data/out下  
 ## 2020/04/02更新  
 暂时没有新内容，YOLO调试指令补档（因为一个失误把存命令的文件删了，花了两天时间复原，太坑了）  
 ```
