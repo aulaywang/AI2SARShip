@@ -38,42 +38,19 @@ mAP = 92.4(YOLO流皮)
 Enter path:/home/aulaywang/darknet/2007_test.txt
 ```
 运行完毕后图片会保存在data/out下  
-## 2020/04/02更新  
-暂时没有新内容，YOLO调试指令补档（因为一个失误把存命令的文件删了，花了两天时间复原，太坑了）  
-```
-SAR
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c1.png)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c2.png)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c3.png)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c4.png)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c5.png)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c6.png)
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c7.png)
 
-train:
-./darknet detector train cfg/voc.data_sar cfg/yolov3-voc.cfg darknet53.conv.74
+更新了一些有趣的代码(others文件夹下)：
+flv2jpg.py:视频转图片输出  
+voc_labe.py:把voc的xml格式转化成yolo格式(5参数格式)，会在执行完后生成labels文件夹  
+test.py:数据集划分程序  
 
-test:
-./darknet detector valid cfg/voc.data_sar cfg/yolov3-voc.cfg backup0/yolov3-voc_900.weights
-# change the batch = 1 and subdivisions = 1
-
-draw:
-./darknet detector valid cfg/voc.data_sar cfg/yolov3-voc.cfg backup0/yolov3-voc_900.weights -out ""
-#这个没用
-python reval_voc_py3.py --voc_dir /home/aulaywang/darknet/VOCdevkit --year 2007 --image_set /home/aulaywang/darknet/VOCdevkit/VOC2007/ImageSets/Main/train --classes /home/aulaywang/darknet/data0/voc.names test4sar
-
-#activate torch2
-python compute_mAP.py 
-
-
-VOC
-
-train:
-./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 | tee visualization/train_yolov3.log 
-
-
-
-test:
-./darknet detector valid cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc_2600.weights -out
-
-draw:
-./darknet detector valid cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc_2600.weights -out ""
-python reval_voc_py3_voc.py --voc_dir /home/aulaywang/darknet/VOCdevkit --year 2007 --image_set /home/aulaywang/darknet/VOCdevkit/VOC2007/results/ --classes /home/aulaywang/darknet/voc.names test2voc
-### 暂时是error ###
-```
 ## 2020/03/26更新  
 **研究了一些模型的PR曲线绘制**  
 [参考链接](https://blog.csdn.net/hongxingabc/article/details/80064574)  
