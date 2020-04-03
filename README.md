@@ -30,7 +30,7 @@ python compute_mAP.py
 进入visualization文件夹，此时里面应该有一个log文件，准备三个程序：extract_log.py，train_iou_visualization.py和train_loss_visualization.py  
 如果要画loss图就运行1和3两个文件。  
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/visualization/avg_loss.png)  
-图片批量可视化：  
+图片批量可视化（需要对detector.c修改并重编译[参考链接](https://blog.csdn.net/mieleizhi0522/article/details/79989754?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)）：  
 ```
 ./darknet detector test cfg/voc.data_sar cfg/yolov3-voc_sar2.cfg backup/yolov3-voc_sar2_2000.weights
 Enter path:/home/aulaywang/darknet/2007_test.txt
