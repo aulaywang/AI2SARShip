@@ -19,13 +19,15 @@ darknet53.conv.73预训练模型
 ./darknet detector valid cfg/voc.data cfg/yolov3-voc_sar.cfg backup/yolov3-voc_2000.weights -out
 ```
 后面的 -out可以在darknet/results文件夹下生成一个ship.txt文件，代表检测结果。  
-画precison-recall图：  
+画precision-recall图：  
 ```
 在python2的环境下
 python compute_mAP.py 
 ```
 注意需要voc_eval.py这个文件作为头文件，同时把darknet下原来的annots.pkl删除或者重命名。  
 这样就可以画图了，同时会返回precision和recall各自的值。  
+mAP = 92.4(YOLO流皮)  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/sar_811_92.png)
 画loss图：  
 进入visualization文件夹，此时里面应该有一个log文件，准备三个程序：extract_log.py，train_iou_visualization.py和train_loss_visualization.py  
 如果要画loss图就运行1和3两个文件。  
