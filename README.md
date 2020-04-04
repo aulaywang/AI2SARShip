@@ -13,7 +13,10 @@ pr曲线:
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/pr_95.png)  
 loss曲线：  
 ![图片](https://github.com/aulaywang/AI2SARShip/blob/master/visualization/avg_loss_95.png)  
-
+上对比图（左右分别为92.4和95.0）：  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c11.png)  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c12.png)  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/compare/c13.png)  
 ## 2020/04/03更新  
 目前的进度总体来说还是围绕YOLOv3架构进行改进，放弃改darknet53了，准备尝试改一改后面的检测算法，看看能不能有突破。  
 先回顾一下整套YOLOv3的SAR目标检测的流程。  
