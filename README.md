@@ -9,6 +9,10 @@
 修改过后的yolov3-voc.cfg见[链接](https://github.com/aulaywang/AI2SARShip/blob/master/cfg/yolov3-voc_sar3.cfg)  
 检测效果：  
 检测准确率（mAP）从92.4提高到95.0。  
+pr曲线:  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/pr_95.png)  
+loss曲线：  
+![图片](https://github.com/aulaywang/AI2SARShip/blob/master/visualization/avg_loss_95.png)  
 
 ## 2020/04/03更新  
 目前的进度总体来说还是围绕YOLOv3架构进行改进，放弃改darknet53了，准备尝试改一改后面的检测算法，看看能不能有突破。  
