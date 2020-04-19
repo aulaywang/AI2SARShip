@@ -108,7 +108,7 @@ FasterRCNN + Res101 + SSDD 的loss曲线：（ mAP = 81.2 ）
 ## 2020/03/13更新  
 实现YOLOv3对本地数据集的预测  
 实现效果  
-![图片](https://github.com/aulaywang/AI2SARShip/blob/master/predictions.jpg)  
+[图片](https://github.com/aulaywang/AI2SARShip/blob/master/predictions.jpg)  
 **实现YOLO的图片批量处理导出**  
 [视频地址](https://www.zhihu.com/zvideo/1221754129061982208)  
 ## 2020/03/11更新  
@@ -179,7 +179,7 @@ python demo.py --net vgg16 \
 python demo.py --net res101 --checksession 1 --checkepoch 7 --checkpoint 10021 --cuda --load_dir models
 ```
 检测效果  
-![kon](https://github.com/aulaywang/AI2SARShip/blob/master/kon5._det.jpg)
+[kon](https://github.com/aulaywang/AI2SARShip/blob/master/kon5._det.jpg)
 ### 模型效果  
 
 VOC2007   
